@@ -22,7 +22,7 @@ describe('Automation Exercise', () => {
 
      });
 
-     it.only('Exemplos de Logs', () => {
+     it('Exemplos de Logs', () => {
       cy.log(`STEP 1:: PGATS AUTOMACAO WEB CY LOG`)
       cy.log(`STEP 1:: PGATS AUTOMACAO WEB CY LOG`)
 
@@ -37,7 +37,7 @@ describe('Automation Exercise', () => {
      });
 
 
-    it.only('Cadastrar um usuário', () => {
+    it('Cadastrar um usuário', () => {
 
         const timestamp = new Date().getTime()       
 
