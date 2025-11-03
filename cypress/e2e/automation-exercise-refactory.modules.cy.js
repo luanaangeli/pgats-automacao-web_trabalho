@@ -78,7 +78,7 @@ describe('Automation Exercise', () => {
 
 
      //Test Case 6: Contact Us Form
-    it.only('Enviar um Formulário de Contato com upload de arquivo', () => {
+    it('Enviar um Formulário de Contato com upload de arquivo', () => {
         contato.preencherContactUs(userData.name, userData.email, userData.subject, userData.message)
        
         cy.get('.status').should('be.visible')
