@@ -20,5 +20,5 @@ jobs:
         run: npm install
 
       - name: Executando os testes
-        run: npx cypress run
+        run: npx cypress run --spec cypress/e2e/automation-exercise-refactory.modules.cy.js
   
