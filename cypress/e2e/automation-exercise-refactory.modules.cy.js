@@ -1,7 +1,6 @@
 import userData from '../fixtures/example.json'
-import {getRandomNumber, 
-        getRandomEmail
- } from '../support/helpers'
+
+import { getRandomNumber, getRandomEmail } from '../support/helpers'
 
 import { faker } from '@faker-js/faker'
 
@@ -9,6 +8,8 @@ import menu from '../modules/menu'
 import login from '../modules/login'
 import cadastro from '../modules/cadastro'
 import contato from '../modules/contato'
+import produtos from '../modules/produtos'
+
 
 
 describe('Automation Exercise', () => {
@@ -18,6 +19,7 @@ describe('Automation Exercise', () => {
 
       menu.navegarParaLogin()
       menu.navegarParaContactUs()
+      menu.navegarParaProdutos()
      });
 
 
@@ -89,13 +91,49 @@ describe('Automation Exercise', () => {
    
 
     //Test Case 8: Verify All Products and product detail page
+    it('Validar todos os produtos e detalhes de um produto na pagina, como sua descrição', () => {
+      produtos.VerificarDetalhesDoProduto()
+
+      cy.get('.product-information').should('contain','Blue Top')
+      cy.get('.product-information').should('contain','Category')
+      cy.get('.product-information').should('contain','Rs.')
+      cy.get('.product-information').should('contain','Quantity')
+      cy.get('.product-information').should('contain','Availability')
+      cy.get('.product-information').should('contain','Condition')
+    });
 
     //Test Case 9: Search Product
+   it('Validar pesquisa do produto', () => {
+     produtos.ProcurarProdutos()
+     produtos.VerificarDetalhesDoProduto()
+
+     cy.contains('Tshirt')
+
+    });
+
+
 
     //Test Case 10: Verify Subscription in home page
+    it('Validar inscrição para receber newslatters', () => {
+      cy.get('#susbscribe_email').type(getRandomEmail())
+      cy.get('#subscribe').click()
+      cy.get('.alert-success').should('have.text', 'You have been successfully subscribed!')
+          
+    });
+
 
     //Test Case 15: Place Order: Register before Checkout
+   // it('Validar pedido', () => {
+      
+    //});
 
+//Logged in as QA Tester 
+//qa-tester-1761782358212@test.com
+//<a data-product-id="2" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+//<h4 class="modal-title w-100">Added!</h4>
+//<p class="text-center">Your product has been added to cart.</p>
+//<a href="/view_cart"><u>View Cart</u></a>    <u>View Cart</u>
+//<a class="btn btn-default check_out">Proceed To Checkout</a>
 
 
 

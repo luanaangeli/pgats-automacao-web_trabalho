@@ -8,9 +8,17 @@ class Menu{
     }
 
     navegarParaContactUs(){
+      
         cy.get('a[href*=contact]').click()
-        //cy.get(`a[href="/contact_us"]`).click()
+        
     }
+
+    navegarParaProdutos(){
+        //cy.get('.shop-menu > .nav > :nth-child(2) > a').click()
+        cy.get('a[href="/products"]').click()
+    }
+
+
 }
 
 

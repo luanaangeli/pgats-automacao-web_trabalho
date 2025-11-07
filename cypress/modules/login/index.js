@@ -6,6 +6,8 @@ class Login{
         const firstName = faker.person.firstName()
         const lastName = faker.person.lastName()
 
+        cy.get('.shop-menu > .nav > :nth-child(4) > a ').click()
+        cy.wait(1000)
         cy.get('[data-qa="signup-name"]').type(`${firstName} ${lastName}`)
         cy.get('[data-qa="signup-email"]').type(getRandomEmail())
            
@@ -13,6 +15,8 @@ class Login{
     }
 
     preencherFormularioDeLogin(user, pass){
+       cy.get('.shop-menu > .nav > :nth-child(4) > a ').click()
+       cy.wait(1000)
        cy.get(`[data-qa="login-email"]`).type(user)
        cy.get(`[data-qa="login-password"]`).type(pass)
 
@@ -20,6 +24,8 @@ class Login{
     }
 
     preencherFormularioDeLoginExistente(name, user){
+       cy.get('.shop-menu > .nav > :nth-child(4) > a ').click()
+       cy.wait(1000)
        cy.get(`[data-qa="signup-name"]`).type(name) //`QA Tester`
        cy.get(`[data-qa="signup-email"]`).type(user) //`qa-tester-1761782358212@test.com`
 
